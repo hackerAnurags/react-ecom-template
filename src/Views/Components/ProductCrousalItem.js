@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const Product = ({ primary_image, name, special_price, border }) => {
     return (
         <Wrapper>
-            <div className={border === true ? "product product-11 text-center border border-success" : "product product-11 text-center"}>
+            <div className={border === true ? "product product-11 mobileProductWithBorder text-center" : "product product-11 text-center"}>
                 <figure className="product-media">
                     <span className="product-label label-circle label-sale">
                         Sale

@@ -28,3 +28,48 @@ export const makeTimer = (timer) => {
 
     return timeLeft;
 }
+
+// Mobile Menu Toggle - Show & Hide
+export const mobileMenuClose = () => {
+    $('.mobile-menu-overlay, .mobile-menu-close').on('click', function (e) {
+        $('body').removeClass('mmenu-active');
+        $('.menu-toggler').removeClass('active');
+        e.preventDefault();
+    });
+}
+
+// Add Mobile menu icon arrows to items with children
+
+export const mobileMenuArrow = () => {
+    $('.mobile-menu').find('li').each(function () {
+        var $this = $(this);
+
+        if ($this.find('ul').length) {
+            $('<span/>', {
+                'class': 'mmenu-btn'
+            }).appendTo($this.children('a'));
+        }
+    });
+}
+
+// Mobile Menu toggle children menu
+
+export const mobileMenuToggle = () => {
+    $('.mmenu-btn').on('click', function (e) {
+        var $parent = $(this).closest('li'),
+            $targetUl = $parent.find('ul').eq(0);
+
+        if (!$parent.hasClass('open')) {
+            $targetUl.slideDown(300, function () {
+                $parent.addClass('open');
+            });
+        } else {
+            $targetUl.slideUp(300, function () {
+                $parent.removeClass('open');
+            });
+        }
+
+        e.stopPropagation();
+        e.preventDefault();
+    });
+}

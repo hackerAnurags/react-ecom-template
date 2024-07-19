@@ -30,11 +30,7 @@ import "swiper/css/grid";
 
 import "../../Styles/crousel.css";
 
-import {
-    Autoplay,
-    Pagination,
-    Navigation,
-} from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import {
     allBlogs,
     allSlider,
@@ -42,7 +38,10 @@ import {
     proSecTab,
 } from "../../Utils/CustomList";
 import { useDispatch, useSelector } from "react-redux";
-import { setTabHeaderState, setTabSpeProductState } from "../../Database/Action/DashboardAction";
+import {
+    setTabHeaderState,
+    setTabSpeProductState,
+} from "../../Database/Action/DashboardAction";
 import ProductGridCrousel from "../Components/ProductGridCrousel";
 import ProductCrousal from "../Components/ProductCrousal";
 
@@ -55,19 +54,21 @@ const tabStyle = {
 };
 
 const Home = () => {
-    const filterProduct = useSelector((state) => state.DashboardReducer.filterProduct);
-    console.log(filterProduct)
+    const filterProduct = useSelector(
+        (state) => state.DashboardReducer.filterProduct
+    );
+    console.log(filterProduct);
     const [tab1, setTab1] = useState(1);
     const [tab2, setTab2] = useState(1);
     const dispatch = useDispatch();
 
     const handleChangeTab1 = (event, newValue) => {
         setTab1(newValue);
-        dispatch(setTabHeaderState(newValue))
+        dispatch(setTabHeaderState(newValue));
     };
     const handleChangeTab2 = (event, newValue) => {
         setTab2(newValue);
-        dispatch(setTabSpeProductState(newValue))
+        dispatch(setTabSpeProductState(newValue));
     };
     return (
         <Wrapper>
@@ -92,10 +93,9 @@ const Home = () => {
                                 <SwiperSlide>
                                     <div
                                         key={index}
-                                        className="intro-slide"
+                                        className="intro-slide homeSlider"
                                         style={{
                                             backgroundImage: `url(${item.path})`,
-                                            height: "350px",
                                         }}
                                     />
                                 </SwiperSlide>
@@ -136,7 +136,7 @@ const Home = () => {
                         disableOnInteraction: false,
                     }}
                     modules={[Autoplay]}
-                    className="brands-border owl-carousel owl-simple"
+                    className="brands-border owl-carousel owl-simple mobileBrandWipper"
                 >
                     <SwiperSlide>
                         <a href="#" className="brand">
@@ -311,15 +311,23 @@ const Home = () => {
                         <div className="container-fluid">
                             <Box className="tab-content tab-content-carousel">
                                 <div
-                                    class="product-swiper-button-prev"
-                                    style={{ color: "#a6c76c" }}>
-                                    <i className="fa-solid fa-chevron-left text-white" style={{ fontSize: "25px" }} />
+                                    className="product-swiper-button-prev mobileNone"
+                                    style={{ color: "#a6c76c" }}
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-left text-white"
+                                        style={{ fontSize: "25px" }}
+                                    />
                                 </div>
 
                                 <div
-                                    class="product-swiper-button-next"
-                                    style={{ color: "#a6c76c" }}>
-                                    <i className="fa-solid fa-chevron-right text-white" style={{ fontSize: "25px" }} />
+                                    className="product-swiper-button-next mobileNone"
+                                    style={{ color: "#a6c76c" }}
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-right text-white"
+                                        style={{ fontSize: "25px" }}
+                                    />
                                 </div>
                                 <TabPanel
                                     sx={{ padding: "20px", lineHeight: "2" }}
@@ -383,34 +391,101 @@ const Home = () => {
                                         <div className="deal-countdown row">
                                             <div className="timerLayout">
                                                 <div>
-                                                    <p style={{ textAlign: "center", fontWeight: "bold", color: "white" }}>10</p>
-                                                    <p style={{ fontWeight: "normal", color: "white" }}>Days.</p>
+                                                    <p
+                                                        style={{
+                                                            textAlign: "center",
+                                                            fontWeight: "bold",
+                                                            color: "white",
+                                                        }}
+                                                    >
+                                                        10
+                                                    </p>
+                                                    <p style={{ fontWeight: "normal", color: "white" }}>
+                                                        Days.
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <p style={{ fontSize: "20px", fontWeight: "bold", margin: "0px 5px 0px 5px", alignSelf: "center" }}>:</p>
+                                            <p
+                                                style={{
+                                                    fontSize: "20px",
+                                                    fontWeight: "bold",
+                                                    margin: "0px 5px 0px 5px",
+                                                    alignSelf: "center",
+                                                }}
+                                            >
+                                                :
+                                            </p>
                                             <div className="timerLayout">
                                                 <div className="timerLayout">
                                                     <div>
-                                                        <p style={{ textAlign: "center", fontWeight: "bold", color: "white" }}>15</p>
-                                                        <p style={{ fontWeight: "normal", color: "white" }}>Hrs.</p>
+                                                        <p
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontWeight: "bold",
+                                                                color: "white",
+                                                            }}
+                                                        >
+                                                            15
+                                                        </p>
+                                                        <p style={{ fontWeight: "normal", color: "white" }}>
+                                                            Hrs.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p style={{ fontSize: "20px", fontWeight: "bold", margin: "0px 5px 0px 5px", alignSelf: "center" }}>:</p>
+                                            <p
+                                                style={{
+                                                    fontSize: "20px",
+                                                    fontWeight: "bold",
+                                                    margin: "0px 5px 0px 5px",
+                                                    alignSelf: "center",
+                                                }}
+                                            >
+                                                :
+                                            </p>
                                             <div className="timerLayout">
                                                 <div className="timerLayout">
                                                     <div>
-                                                        <p style={{ textAlign: "center", fontWeight: "bold", color: "white" }}>30</p>
-                                                        <p style={{ fontWeight: "normal", color: "white" }}>Mins.</p>
+                                                        <p
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontWeight: "bold",
+                                                                color: "white",
+                                                            }}
+                                                        >
+                                                            30
+                                                        </p>
+                                                        <p style={{ fontWeight: "normal", color: "white" }}>
+                                                            Mins.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p style={{ fontSize: "20px", fontWeight: "bold", margin: "0px 5px 0px 5px", alignSelf: "center" }}>:</p>
+                                            <p
+                                                style={{
+                                                    fontSize: "20px",
+                                                    fontWeight: "bold",
+                                                    margin: "0px 5px 0px 5px",
+                                                    alignSelf: "center",
+                                                }}
+                                            >
+                                                :
+                                            </p>
                                             <div className="timerLayout">
                                                 <div className="timerLayout">
                                                     <div>
-                                                        <p style={{ textAlign: "center", fontWeight: "bold", color: "white" }}>45</p>
-                                                        <p style={{ fontWeight: "normal", color: "white" }}>Secs.</p>
+                                                        <p
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontWeight: "bold",
+                                                                color: "white",
+                                                            }}
+                                                        >
+                                                            45
+                                                        </p>
+                                                        <p style={{ fontWeight: "normal", color: "white" }}>
+                                                            Secs.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -488,15 +563,23 @@ const Home = () => {
                             </Box>
                             <Box className="tab-content">
                                 <div
-                                    className="product-special-swiper-button-prev"
-                                    style={{ color: "#a6c76c" }}>
-                                    <i className="fa-solid fa-chevron-left text-white" style={{ fontSize: "25px" }} />
+                                    className="product-special-swiper-button-prev mobileNone"
+                                    style={{ color: "#a6c76c" }}
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-left text-white"
+                                        style={{ fontSize: "25px" }}
+                                    />
                                 </div>
 
                                 <div
-                                    className="product-special-swiper-button-next"
-                                    style={{ color: "#a6c76c" }}>
-                                    <i className="fa-solid fa-chevron-right text-white" style={{ fontSize: "25px" }} />
+                                    className="product-special-swiper-button-next mobileNone"
+                                    style={{ color: "#a6c76c" }}
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-right text-white"
+                                        style={{ fontSize: "25px" }}
+                                    />
                                 </div>
                                 <TabPanel
                                     sx={{ padding: "20px", lineHeight: "2" }}
@@ -615,6 +698,9 @@ const Home = () => {
 };
 
 const Wrapper = styled.section`
+  .homeSlider {
+    height: 350px !important;
+  }
   .intro-slider-container {
     height: 350px !important;
   }
@@ -630,9 +716,9 @@ const Wrapper = styled.section`
     cursor: pointer;
     align-items: center;
     justify-content: center;
-}
+  }
 
-.product-swiper-button-next {
+  .product-swiper-button-next {
     position: absolute;
     width: 50px;
     height: 250px;
@@ -644,8 +730,8 @@ const Wrapper = styled.section`
     cursor: pointer;
     align-items: center;
     justify-content: center;
-}
-.product-special-swiper-button-prev{
+  }
+  .product-special-swiper-button-prev {
     position: absolute;
     width: 40px;
     height: 120px;
@@ -657,8 +743,8 @@ const Wrapper = styled.section`
     cursor: pointer;
     align-items: center;
     justify-content: center;
-}
-.product-special-swiper-button-next{
+  }
+  .product-special-swiper-button-next {
     position: absolute;
     width: 40px;
     height: 120px;
@@ -670,15 +756,40 @@ const Wrapper = styled.section`
     cursor: pointer;
     align-items: center;
     justify-content: center;
-}
-.timerLayout{
+  }
+  .timerLayout {
     width: 55px;
     height: 80px;
     background-color: #a6c76c;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
+  .mobileProductWithBorder {
+    border: 1px solid #a6c76c;
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .mobileProductWithBorder {
+      border: none;
+      border: 0px;
+    }
+    .mobileNone {
+      display: none;
+    }
+    .homeSlider {
+      width: 100%;
+      height: 150px !important;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .intro-slider-container {
+      width: 100%;
+      height: 150px !important;
+    }
+    .mobileBrandWipper{
+        height: 100px !important;
+    }
+  }
 `;
 
 export default Home;

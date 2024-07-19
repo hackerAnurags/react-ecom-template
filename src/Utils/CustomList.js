@@ -39,6 +39,9 @@ import slider2 from "../Assets/images/iot_asset/slider2.jpg";
 import slider3 from "../Assets/images/iot_asset/slider3.jpg";
 import slider4 from "../Assets/images/iot_asset/slider4.jpg";
 
+import { blue, brown, deepOrange, deepPurple, indigo, lime, purple, red, teal, yellow } from "@mui/material/colors";
+
+
 export const proDetailTab = [
     {
         id: 1,
@@ -1697,3 +1700,36 @@ export const orders = [
         path: product16_1
     }
 ]
+
+export const avtarBgColor = [
+    red[500],
+    red[400],
+    red[600],
+    purple[500],
+    purple[400],
+    purple[600],
+    deepPurple[500],
+    deepPurple[400],
+    deepPurple[600],
+    indigo[500],
+    indigo[400],
+    indigo[600],
+    blue[500],
+    blue[400],
+    blue[600],
+    teal[500],
+    teal[400],
+    teal[600],
+    lime[500],
+    lime[400],
+    lime[600],
+    deepOrange[500],
+    deepOrange[400],
+    deepOrange[600],
+    brown[500],
+    brown[400],
+    brown[600],
+    yellow[500],
+    yellow[400],
+    yellow[600],
+];

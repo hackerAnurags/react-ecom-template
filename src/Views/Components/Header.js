@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect } from 'react'
 // import logo from "../../Assets/images/demos/demo-2/logo.png";
 import logo from "../../Assets/images/iot_asset/icon.png";
 import product1 from "../../Assets/images/products/cart/product-1.jpg"
@@ -8,9 +8,21 @@ import banner1 from "../../Assets/images/menu/banner-1.jpg"
 import banner2 from "../../Assets/images/menu/banner-2.jpg"
 import { NavLink, useNavigate } from "react-router-dom"
 import { allCategory } from '../../Utils/CustomList';
+import { mobileMenuClose } from '../../Java/Main';
+import $ from "jquery"
+
 
 const Header = () => {
     const navigate = useNavigate();
+
+    const mobileMenuOpen = (e) => {
+        $('body').toggleClass('mmenu-active');
+        $(this).toggleClass('active');
+        e.preventDefault();
+    }
+    useEffect(() => {
+        mobileMenuClose();
+    }, [])
     return (
         <header className="header header-2 header-intro-clearance">
             <div className="header-top" style={{ backgroundImage: "linear-gradient(90.1deg, rgb(66, 138, 220) 0.3%, rgb(56, 202, 209) 99.9%)" }}>
@@ -78,7 +90,7 @@ const Header = () => {
             <div className="header-middle">
                 <div className="container">
                     <div className="header-left">
-                        <button className="mobile-menu-toggler">
+                        <button className="mobile-menu-toggler" onClick={mobileMenuOpen}>
                             <span className="sr-only">Toggle mobile menu</span>
                             <i className="icon-bars" />
                         </button>

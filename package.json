@@ -18,6 +18,8 @@
     "jquery": "^3.7.1",
     "jquery-countdown": "^2.2.0",
     "jquery-ui-dist": "^1.13.3",
+    "lodash.isempty": "^4.4.0",
+    "lottie-react": "^2.4.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
